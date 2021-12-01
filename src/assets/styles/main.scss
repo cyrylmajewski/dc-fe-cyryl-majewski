@@ -1,0 +1,70 @@
+@import './mixins';
+@import './fonts';
+@import './grid';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  font-family: $font-main !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #A9B1BD;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: $grid-container;
+  margin: 0 auto;
+  padding: 0 $grid-gutter;
+
+  @media #{$xs} {
+    max-width: $grid-container-xs;
+  }
+  @media #{$sm} {
+    max-width: $grid-container-sm;
+  }
+  @media #{$md} {
+    max-width: $grid-container-md;
+  }
+  @media #{$lg} {
+    max-width: $grid-container-lg;
+  }
+  @media #{$xl} {
+    max-width: $grid-container-xl;
+  }
+  @media #{$xxl} {
+    max-width: $grid-container-xxl;
+  }
+}
+
+input {
+  padding: 0;
+  margin: 0;
+}

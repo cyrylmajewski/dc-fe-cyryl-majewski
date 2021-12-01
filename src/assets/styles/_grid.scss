@@ -1,0 +1,41 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Grid                                    */
+/* -------------------------------------------------------------------------- */
+
+
+/* --------------------------------- Gutter --------------------------------- */
+
+$grid-gutter: 15px;
+
+
+/* -------------------------------- Container ------------------------------- */
+
+$grid-container: 100%;
+$grid-container-xs: 540px;
+$grid-container-sm: 720px;
+$grid-container-md: 960px;
+$grid-container-lg: 1140px;
+$grid-container-xl: 1470px;
+$grid-container-xxl: 1640px;
+
+
+/* ------------------------------- Breakpoints ------------------------------ */
+
+$min-xs: 576px;
+$min-sm: 768px;
+$min-md: 992px;
+$min-lg: 1200px;
+$min-xl: 1640px;
+$min-xxl: 1920px;
+
+/* -------------------------------------------------------------------------- */
+/*                                 Breakpoints                                */
+/* -------------------------------------------------------------------------- */
+
+$xs: 'only screen and (max-width: #{$min-xs})';
+$sm: 'only screen and (min-width: #{$min-sm})';
+$md: 'only screen and (min-width: #{$min-md})';
+$lg: 'only screen and (min-width: #{$min-lg})';
+$xl: 'only screen and (min-width: #{$min-xl})';
+$xxl: 'only screen and (min-width: #{$min-xxl})';
+
