@@ -26,7 +26,7 @@
             </div>
             <div class="list__table-col">{{ character.id }}</div>
             <div class="list__table-col">
-              <a href="#" @click="openPopup(character)" class="list__table-link">{{ character.name }}</a>
+              <a href="#" @click="openPopup(character, $event)" class="list__table-link">{{ character.name }}</a>
               <span class="list__table-name">{{ character.name }}</span>
             </div>
             <div class="list__table-col">{{ character.gender }}</div>
@@ -63,7 +63,9 @@
         <div class="popup__fav">
           <Button :toggle="toggle" :id="currentCharacter.id" :checked="favorites.find(item => item === currentCharacter.id) !== undefined ? true : false" />
         </div>
-        <button @click="popupActive = !popupActive" class="popup__close">close</button>
+        <button @click="popupActive = !popupActive" class="popup__close">
+          <img src="../assets/images/close.svg" alt="close">
+        </button>
       </div>
     </div>
   </div>
@@ -94,7 +96,8 @@ export default defineComponent({
     }
   },
   methods: {
-    openPopup({ id, name, image, gender, species, episode, status }) {
+    openPopup({ id, name, image, gender, species, episode, status }, event: MouseEvent) {
+      event.preventDefault();
       this.currentCharacter.id = id;
       this.currentCharacter.name = name;
       this.currentCharacter.image = image;
@@ -190,21 +193,38 @@ $color-main: #11B0C8;
 
   &__close {
     position: absolute;
+    width: 32px;
+    height: 32px;
     top: 0;
     right: 0;
     background: transparent;
     border: none;
     cursor: pointer;
+    padding: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 }
 .list {
   &__table {
     overflow: scroll;
-    height: 65vh;
+    height: 46vh;
+
+    @media #{$sm} {
+      height: 57vh;
+    }
+    @media #{$md} {
+      height: 65vh;
+    }
 
     &-image {
       @include flex(center, center);
       position: relative;
+      width: 68px;
       height: 68px;
       mix-blend-mode: luminosity;
 

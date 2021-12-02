@@ -49,7 +49,17 @@ export default defineComponent({
 }
 
 .pagination-component {
-  padding: 40px 0 61px;
+  padding: 20px 0 20px;
+
+  @media #{$sm} {
+    padding: 25px 0 25px;
+  }
+  @media #{$lg} {
+    padding: 35px 0 35px;
+  }
+  @media #{$xl} {
+    padding: 40px 0 61px;
+  }
 }
 
 .Pagination {
