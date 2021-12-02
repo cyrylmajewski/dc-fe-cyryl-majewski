@@ -15,7 +15,13 @@
       :close-on-select="true">
     </multiselect>
     <div class="search__box">
-      <input v-model="inputValue" id="search" type="text" class="search__input">
+      <input
+       v-model="inputValue" 
+       id="search" 
+       type="text" 
+       class="search__input"
+       @keyup.enter="search"
+       >
       <button @click="search" class="search__button">
         <img src="../assets/images/search.svg" alt="search">
       </button>

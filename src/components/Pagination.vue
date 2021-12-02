@@ -28,19 +28,24 @@ export default defineComponent({
   computed: {
     currentPage() {
       return this.page;
-    },
+    }
   },
 })
 </script>
 
 <style lang="scss">
 %pagination-button {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   background-color: transparent !important;
   border: 1px solid #A9B1BD;
   box-sizing: border-box;
   border-radius: 4px;
+
+  @media #{$md} {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .pagination-component {
@@ -48,19 +53,24 @@ export default defineComponent({
 }
 
 .Pagination {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  align-items: center;
+  @include flex(center, center, wrap, row);
   margin: 0;
   padding: 0;
   list-style-type: none; 
+
+  @media #{$md} {
+    justify-content: flex-start;
+  }
 }
 
 .PaginationControl {
-  @include flex(center, center);
   @extend %pagination-button;
-  margin: 0 4px;
+  display: none;
+
+  @media #{$md} {
+    @include flex(center, center);
+    margin: 0 4px;
+  }
 
   &:first-child {
     margin-left: 0;
