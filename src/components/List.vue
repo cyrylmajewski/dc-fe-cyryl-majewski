@@ -59,148 +59,150 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 
-.list__test {
-  overflow: scroll;
-  height: 65vh;
+.list {
+  &__test {
+    overflow: scroll;
+    height: 65vh;
 
-  &-image {
-    @include flex(center, center);
-    position: relative;
-    height: 68px;
-    mix-blend-mode: luminosity;
+    &-image {
+      @include flex(center, center);
+      position: relative;
+      height: 68px;
+      mix-blend-mode: luminosity;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      &::after {
+        content: '';
+        display: none;
+        position: absolute;
+        width: 16px;
+        height: 28px;
+        background: url('../assets/images/dead.svg') center center / contain no-repeat;
+        top: -3px;
+        right: -5px;
+      }
     }
 
-    &::after {
-      content: '';
-      display: none;
-      position: absolute;
-      width: 16px;
-      height: 28px;
-      background: url('../assets/images/dead.svg') center center / contain no-repeat;
-      top: -3px;
-      right: -5px;
-    }
-  }
-
-  &-header {
-    position: sticky;
-    top: -2px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    color: #A9B1BD;
-    text-align: left;
-    padding: 16px 0;
-    background: #fff;
-    z-index: 9;
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(229, 234, 244, 0.25);
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-
-    .list__test-row {
-      border: none;
-    }
-  }
-
-  &-body {
-    .list__test-row {
+    &-header {
+      position: sticky;
+      top: -2px;
+      font-weight: 500;
       font-size: 16px;
       line-height: 22px;
       color: #A9B1BD;
-      padding: 8px 0;
-    }
-  }
+      text-align: left;
+      padding: 16px 0;
+      background: #fff;
+      z-index: 9;
 
-  &-row {
-    position: relative;
-    border-bottom: 1px solid #E5EAF4;
-    .container {
-      @include flex();
-    }
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(229, 234, 244, 0.25);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
 
-    &.dead {
-        .list__test-image {
-          img {
-            filter: grayscale(100%); 
-          }
-          
-          &::after {
-            display: block;
-          }
-        }
-    }
-  }
-
-  &-col {
-    @include flex($align: center);
-    &:first-child {
-      flex-basis: 12.5%;
-
-      @media #{$xl} {
-        flex-basis: 10%;
+      .list__test-row {
+        border: none;
       }
     }
 
-    &:nth-child(2) {
-      flex-basis: 8%;
+    &-body {
+      .list__test-row {
+        font-size: 16px;
+        line-height: 22px;
+        color: #A9B1BD;
+        padding: 8px 0;
+      }
+    }
 
-      @media #{$xl} {
-        flex-basis: 13.5%;
+    &-row {
+      position: relative;
+      border-bottom: 1px solid #E5EAF4;
+      .container {
+        @include flex();
       }
 
-      span {
-        display: none;
+      &.dead {
+          .list__test-image {
+            img {
+              filter: grayscale(100%); 
+            }
+            
+            &::after {
+              display: block;
+            }
+          }
+      }
+    }
+
+    &-col {
+      @include flex($align: center);
+      &:first-child {
+        flex-basis: 12.5%;
 
         @media #{$xl} {
-          display: inline;
+          flex-basis: 10%;
         }
       }
-    }
 
-    &:nth-child(3) {
-      flex-basis: 17.5%;
+      &:nth-child(2) {
+        flex-basis: 8%;
 
-      @media #{$xl} {
-        flex-basis: 13.3%;
+        @media #{$xl} {
+          flex-basis: 13.5%;
+        }
+
+        span {
+          display: none;
+
+          @media #{$xl} {
+            display: inline;
+          }
+        }
       }
-    }
 
-    &:nth-child(4), &:nth-child(5) {
-      flex-basis: 14.4%;
+      &:nth-child(3) {
+        flex-basis: 17.5%;
 
-      @media #{$xl} {
-        flex-basis: 12.9%;
+        @media #{$xl} {
+          flex-basis: 13.3%;
+        }
       }
-    }
 
-    &:nth-child(6) {
-      flex-basis: 13.2%;
+      &:nth-child(4), &:nth-child(5) {
+        flex-basis: 14.4%;
 
-      @media #{$xl} {
+        @media #{$xl} {
+          flex-basis: 12.9%;
+        }
+      }
+
+      &:nth-child(6) {
         flex-basis: 13.2%;
+
+        @media #{$xl} {
+          flex-basis: 13.2%;
+        }
       }
-    }
 
-    &:last-child {
-      flex-basis: 20%;
+      &:last-child {
+        flex-basis: 20%;
 
-      @media #{$xl} {
-        flex-basis: 24.2%;
+        @media #{$xl} {
+          flex-basis: 24.2%;
+        }
       }
     }
   }
