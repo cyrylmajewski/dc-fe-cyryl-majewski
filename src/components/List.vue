@@ -6,7 +6,7 @@
           <div class="container">
             <div class="list__test-col">Photo</div>
             <div class="list__test-col">
-              <span>Character</span> ID
+              <span>Character &nbsp;</span> ID
             </div>
             <div class="list__test-col">Name</div>
             <div class="list__test-col">Gender</div>
