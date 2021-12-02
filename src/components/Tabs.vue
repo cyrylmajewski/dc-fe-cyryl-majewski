@@ -2,8 +2,20 @@
   <div class="tabs">
     <div class="container">
       <ul class="tabs__list">
-        <li class="tabs__list-item"><a href="#" class="tabs__list-link tabs__list-link--active">All characters</a></li>
-        <li class="tabs__list-item"><a href="#" class="tabs__list-link">Favorites</a></li>
+        <li class="tabs__list-item">
+          <a href="#" 
+            @click="changeTab('all')" 
+            class="tabs__list-link" 
+            :class="{ 'active' : active === 'all' }"
+            >All characters</a>
+        </li>
+        <li class="tabs__list-item">
+          <a href="#" 
+            @click="changeTab('favs')" 
+            class="tabs__list-link"
+            :class="{ 'active' : active === 'favs' }"
+            >Favorites</a>
+          </li>
       </ul>
     </div>
   </div>
@@ -14,7 +26,12 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: 'Tabs',
-
+  props: ['active'],
+  methods: {
+    changeTab(tab: string) {
+      this.$emit('changeTab', tab);
+    }
+  }
 })
 </script>
 
@@ -62,7 +79,7 @@ $color-secondary: #E5EAF4;
         color: $color-main;
       }
 
-      &--active {
+      &.active {
         color: $color-main;
         
         &::after {

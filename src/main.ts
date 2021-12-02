@@ -1,5 +1,4 @@
 import { createApp, h } from 'vue'
-import { store, key } from '@/store/index'
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 import { createApolloProvider } from '@vue/apollo-option'
 import App from './App.vue'
@@ -26,7 +25,6 @@ const app = createApp({
   render: () => h(App)
 })
 
-app.use(store, key);
 app.use(apolloProvider)
 app.mount('#app')
 

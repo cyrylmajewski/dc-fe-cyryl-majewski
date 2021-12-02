@@ -32,7 +32,7 @@ $min-xxl: 1920px;
 /*                                 Breakpoints                                */
 /* -------------------------------------------------------------------------- */
 
-$xs: 'only screen and (max-width: #{$min-xs})';
+$xs: 'only screen and (min-width: #{$min-xs})';
 $sm: 'only screen and (min-width: #{$min-sm})';
 $md: 'only screen and (min-width: #{$min-md})';
 $lg: 'only screen and (min-width: #{$min-lg})';

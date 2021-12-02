@@ -29,9 +29,6 @@ export default defineComponent({
     currentPage() {
       return this.page;
     },
-    perPage() {
-      return this.$store.state.perPage;
-    }
   },
 })
 </script>
@@ -61,8 +58,17 @@ export default defineComponent({
 }
 
 .PaginationControl {
-  display: flex;
-  align-items: center; 
+  @include flex(center, center);
+  @extend %pagination-button;
+  margin: 0 4px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .Control {
@@ -74,13 +80,13 @@ export default defineComponent({
   fill: #BBBBBB; 
 }
 .Control-active {
-  fill: #333333;
+  fill: #11B0C8;
   cursor: pointer;
   transition: fill 0.2s ease-in-out; 
 }
 
 .Control-active:hover {
-  fill: #000000;
+  fill: #11B0C8;
   transition: fill 0.2s ease-in-out; 
 }
 

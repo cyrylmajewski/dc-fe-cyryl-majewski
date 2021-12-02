@@ -5,7 +5,7 @@
         <div class="header__logo">
           <img src="../assets/images/logo.png" alt="logo">
         </div>
-        <Search @search-by-name="searchByName" />
+        <Search @search="search" />
       </div>
     </div>
   </div>
@@ -21,8 +21,8 @@ export default defineComponent({
     Search
   },
   methods: {
-    searchByName(value: string) {
-      this.$emit('searchByName', value);
+    search(value: string) {
+      this.$emit('search', value);
     }
   }
 })
@@ -35,17 +35,36 @@ export default defineComponent({
   padding: 32px 0;
 
   &__container {
-    display: flex;
-    align-items: center;
+    @include flex(center, center, $wrap: wrap, $dir: column);
     width: 100%;
     max-width: 1640px;
     margin: 0 auto;
+
+    @media #{$lg} {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    @media #{$xl} {
+      justify-content: flex-start;
+    }
   }
 
   &__logo {
     width: 100%;
-    max-width: 240px;
-    margin-right: 80px;
+    max-width: 170px;
+    margin-bottom: 40px;
+
+    @media #{$lg} {
+      max-width: 240px;
+      margin-right: 80px;
+      margin-bottom: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 }
 </style>

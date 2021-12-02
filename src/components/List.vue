@@ -5,7 +5,9 @@
         <div class="list__test-row">
           <div class="container">
             <div class="list__test-col">Photo</div>
-            <div class="list__test-col">Character ID</div>
+            <div class="list__test-col">
+              <span>Character</span> ID
+            </div>
             <div class="list__test-col">Name</div>
             <div class="list__test-col">Gender</div>
             <div class="list__test-col">Species</div>
@@ -15,7 +17,7 @@
         </div>
       </div>
       <div class="list__test-body" v-if="characters">
-        <div v-for="character in characters.results" :key="character.id" class="list__test-row" :class="{ 'dead' : character.status === 'Dead' }">
+        <div v-for="character in characters" :key="character.id" class="list__test-row" :class="{ 'dead' : character.status === 'Dead' }">
           <div class="container">
             <div class="list__test-col">
               <div class="list__test-image">
@@ -147,27 +149,59 @@ export default defineComponent({
   &-col {
     @include flex($align: center);
     &:first-child {
-      flex-basis: 10%;
+      flex-basis: 12.5%;
+
+      @media #{$xl} {
+        flex-basis: 10%;
+      }
     }
 
     &:nth-child(2) {
-      flex-basis: 13.5%;
+      flex-basis: 8%;
+
+      @media #{$xl} {
+        flex-basis: 13.5%;
+      }
+
+      span {
+        display: none;
+
+        @media #{$xl} {
+          display: inline;
+        }
+      }
     }
 
     &:nth-child(3) {
-      flex-basis: 13.3%;
+      flex-basis: 17.5%;
+
+      @media #{$xl} {
+        flex-basis: 13.3%;
+      }
     }
 
     &:nth-child(4), &:nth-child(5) {
-      flex-basis: 12.9%;
+      flex-basis: 14.4%;
+
+      @media #{$xl} {
+        flex-basis: 12.9%;
+      }
     }
 
     &:nth-child(6) {
       flex-basis: 13.2%;
+
+      @media #{$xl} {
+        flex-basis: 13.2%;
+      }
     }
 
     &:last-child {
-      flex-basis: 24.2%;
+      flex-basis: 20%;
+
+      @media #{$xl} {
+        flex-basis: 24.2%;
+      }
     }
   }
 }
